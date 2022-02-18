@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Practice Notes",
+    "post_content": "Great training, everyone. Rotations went well and we're seeing good integartion of this new 4-2-3-1 formation. Let's communicate more without the ball and make sure we're moving into unoccupied space. Beep test tomorrow! :D",
+    "post_date": "2022-02-12 18:01:01",
+    "user_id": 4
+  },
+  {
+    "id": 2,
+    "title": "Spicy Terikyaki Recommendation",
+    "post_content": "Anyone know a good place around the trainign facility?",
+    "post_date": "2022-02-13 18:01:01",
+    "user_id": 1
+  },
+  {
+    "id": 3,
+    "title": "Fitness",
+    "post_content": "Going to be leading morning runs with Alex. If you want in, comment below and I'll text the route tonight. #YNYA",
+    "post_date": "2022-02-14 9:05:47",
+    "user_id": 2
+  },
+  {
+    "id": 4,
+    "title": "Coach Notes",
+    "post_content": "Did anyone lose their tactics sheet? I found two in my bag. Hit me up after practice.",
+    "post_date": "2022-02-15 16:39:27",
+    "user_id": 3
+  },
+  {
+    "id": 5,
+    "title": "CCL here we come!",
+    "post_content": "This is it boys. We play for these moments. #CCLchamps",
+    "post_date": "2022-02-17 18:01:01",
+    "user_id": 4
+  }
+]

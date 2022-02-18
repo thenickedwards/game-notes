@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "username": "nouhou_choochoo",
+    "email": "tolo.nouhou@soundersfc.com",
+    "password": "WC!2022"
+  },
+  {
+    "id": 2,
+    "username": "croldan",
+    "email": "christian.roldan@soundersfc.com",
+    "password": "f!rs1_br0"
+  },
+  {
+    "id": 3,
+    "username": "aroldan",
+    "email": "alex.roldan@soundersfc.com",
+    "password": "2gud4!bro"
+  },
+  {
+    "id": 4,
+    "username": "rui",
+    "email": "raul.ruidiaz@soundersfc.com",
+    "password": "g0ld3n!8oot"
+  }
+]
