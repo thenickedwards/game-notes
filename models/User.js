@@ -8,7 +8,6 @@ class User extends Model {
   }
 }
 
-// TODO: Update key-value pairs here
 User.init(
   {
     id: {
