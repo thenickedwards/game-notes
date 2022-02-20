@@ -3,7 +3,7 @@ const res = require('express/lib/response');
 const { Comment, Post, User } = require('../../models');
 
 // READ all Comments
-router.get('/', async (req, res) => {
+router.get('/admin-get-all-comments', async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             include: [{ model: User, Post }],
@@ -14,8 +14,19 @@ router.get('/', async (req, res) => {
     }
 });
 
-// TODO: READ all comments with a post_id
-
+// READ all comments with a post_id
+router.get('/:id', async (req, res) => {
+    try {
+        const commentsByPost = await Comment.findAll({
+            where: {post_id: req.params.id},
+        });
+        const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
+        res.status(200).json(commentsByPost)
+    } catch (err) {
+        // res.redirect('login');
+        res.status(500).json(err);
+    }
+});
 
 // CREATE a comment
 router.post('/', async (req, res) => {
