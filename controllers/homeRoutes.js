@@ -52,7 +52,7 @@ router.get('/posts/:id', async (req, res) => {
     // HOW TO RENDER COMMENTS???
     // PUSH EVERYTHING TO AN ARRAY?  INDEX 0 WITH DIFF STYLING
     // PUSH COMMENTS INTO POST???
-    res.render('post', onePost)
+    res.render('post', [onePost, {comments}])
   } catch {
     // console.log(err);
     res.status(500).json(err);
