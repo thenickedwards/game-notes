@@ -73,7 +73,7 @@ nav a:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .btn-no-style {

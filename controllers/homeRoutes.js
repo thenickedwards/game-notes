@@ -26,8 +26,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET a post
+// GET a post with comments
 router.get('/posts/:id', async (req, res) => {
+  // GET post
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [{ model: User, attributes: ['username'] }]
@@ -39,9 +40,9 @@ router.get('/posts/:id', async (req, res) => {
     }
 
     const onePost = postData.get({ plain: true });
+// GET comments with post_id
 
-    res.render('post', {onePost})
-    res.status(200),json(postData);
+    res.render('post', onePost)
   } catch {
     // console.log(err);
     res.status(500).json(err);
