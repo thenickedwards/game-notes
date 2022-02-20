@@ -51,7 +51,7 @@ router.get('/posts/:id', async (req, res) => {
     const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
     // HOW TO RENDER COMMENTS???
     // PUSH EVERYTHING TO AN ARRAY?  INDEX 0 WITH DIFF STYLING
-    // PUSH COMMENTS INTO POST
+    // PUSH COMMENTS INTO POST???
     res.render('post', onePost)
   } catch {
     // console.log(err);
