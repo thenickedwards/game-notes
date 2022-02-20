@@ -1,2 +1,5 @@
 {{> post-content}}
-{{!-- comments below w/ each --}}
+{{!-- comments below w/ each FIX: allComments var--}}
+{{#each comments as |comment|}}
+{{> comment-details}}
+{{/each}}

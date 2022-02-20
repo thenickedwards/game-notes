@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 // const withAuth = require('../utils/auth');
 
 // GET all posts for homepage/dashboard
@@ -31,7 +31,14 @@ router.get('/posts/:id', async (req, res) => {
   // GET post
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ['username'] }]
+      include: [
+        { model: User, attributes: ['username'] }, 
+        { model: Comment, attributes: ['post_id']}]
+    });
+
+    // GET comments with post_id
+    const commentsByPost = await Comment.findAll({
+      where: {post_id: req.params.id},
     });
 
     if (!postData) {
@@ -40,8 +47,11 @@ router.get('/posts/:id', async (req, res) => {
     }
 
     const onePost = postData.get({ plain: true });
-// GET comments with post_id
-
+    // TODO:
+    const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
+    // HOW TO RENDER COMMENTS???
+    // PUSH EVERYTHING TO AN ARRAY?  INDEX 0 WITH DIFF STYLING
+    // PUSH COMMENTS INTO POST
     res.render('post', onePost)
   } catch {
     // console.log(err);
