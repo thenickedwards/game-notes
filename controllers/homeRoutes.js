@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 // const withAuth = require('../utils/auth');
 
-// GET all posts for homepage/dashboard
+// GET all posts for homepage
 router.get('/', async (req, res) => {
   try {
     const postsData = await Post.findAll({
@@ -37,7 +37,9 @@ router.route('/posts/:id')
       const postData = await Post.findByPk(req.params.id, {
         include: [
           { model: User, attributes: ['username'] },
-        { model: Comment, attributes: ['comment_content', 'comment_date', 'user_id', 'post_id'] } ]
+          { model: Comment, attributes: ['comment_content', 'comment_date', 'user_id', 'post_id'], 
+            include: { model: User, attributes: ['username']} }
+        ]
       });
 
       if (!postData) {
