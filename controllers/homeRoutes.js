@@ -28,12 +28,16 @@ router.get('/', async (req, res) => {
 
 // GET a post with comments
 router.route('/posts/:id')
-  .get( async (req, res) => {
+  // .all(function (req, res, next) {
+  //   console.log('Gathering post and comments...')
+  // })
+  .get( async (req, res, next) => {
     // GET post
     try {
       const postData = await Post.findByPk(req.params.id, {
         include: [
-          { model: User, attributes: ['username'] } ]
+          { model: User, attributes: ['username'] },
+        { model: Comment, attributes: ['comment_content', 'comment_date', 'user_id', 'post_id'] } ]
       });
 
       if (!postData) {
@@ -47,7 +51,8 @@ router.route('/posts/:id')
       res.status(500).json(err);
     }
   })
-  .get( async (req, res) => {
+  // GET comments associated with post
+  .get( async (req, res, next) => {
     try {
         const commentsByPost = await Comment.findAll({
             where: {post_id: req.params.id},
