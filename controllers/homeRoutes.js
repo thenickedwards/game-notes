@@ -27,37 +27,42 @@ router.get('/', async (req, res) => {
 });
 
 // GET a post with comments
-router.get('/posts/:id', async (req, res) => {
-  // GET post
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        { model: User, attributes: ['username'] }, 
-        { model: Comment, attributes: ['post_id']}]
-    });
+router.route('/posts/:id')
+  .get( async (req, res) => {
+    // GET post
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [
+          { model: User, attributes: ['username'] } ]
+      });
 
-    // GET comments with post_id
-    const commentsByPost = await Comment.findAll({
-      where: {post_id: req.params.id},
-    });
+      if (!postData) {
+        res.status(404).json({ message: 'Sorry, we cant find this post.'});
+        return;
+      }
 
-    if (!postData) {
-      res.status(404).json({ message: 'Sorry, we cant find this post.'});
-      return;
+      const onePost = postData.get({ plain: true });
+      res.render('post', onePost)
+    } catch {
+      res.status(500).json(err);
     }
+  })
+  .get( async (req, res) => {
+    try {
+        const commentsByPost = await Comment.findAll({
+            where: {post_id: req.params.id},
+        });
+        const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
+        // res.status(200).json(commentsByPost)
+        console.log(comments);
+        res.render('post', {comments})
+    } catch (err) {
+        // res.redirect('login');
+        res.status(500).json(err);
+    }
+  });
 
-    const onePost = postData.get({ plain: true });
-    // TODO:
-    const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
-    // HOW TO RENDER COMMENTS???
-    // PUSH EVERYTHING TO AN ARRAY?  INDEX 0 WITH DIFF STYLING
-    // PUSH COMMENTS INTO POST???
-    res.render('post', [onePost, {comments}])
-  } catch {
-    // console.log(err);
-    res.status(500).json(err);
-  }
-});
+
 
 
 module.exports = router;
