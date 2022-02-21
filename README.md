@@ -1,29 +1,94 @@
-# e-commerce-pilot
-Homework 13 Object-Relational Mapping (ORM): E-Commerce Back End
+# game-notes (FKA tech-blog)
+Homework 14 Model-View-Controller (MVC): Tech Blog
 
-Additional backend code for E-Commerce Pilot written per acceptance criteria in [provided_assets/W12-hw_readme.md](/provided_assets/W12-hw_readme.md).
+All code for GAme Notes written per acceptance criteria in [provided_assets/W14-hw_readme.md](/provided_assets/W14-hw_readme.md).
+
+## Preface
+This submission is incomplete.  Currently the database is created and seeded correctly.  All of the userRoutes, postRoutes, commentRoutes, and all written homeRoutes function correctly.  The homepage will render all posts.  If a user clicks a post, they will be navigated to a page with those posts and I am attempting to render the comments related to the post.  At the moment there is no readme.  I will continue to work on this assignment and plan to resubmit for a better grade.
+UPDATE: A post will now render with its assocaited comments.
+
+## Acceptance Criteria
+Below is the acceptance criteria from this assignement.
+
+```md
+GIVEN a CMS-style blog site
+WHEN I visit the site for the first time
+THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
+WHEN I click on the homepage option
+THEN I am taken to the homepage
+WHEN I click on any other links in the navigation
+THEN I am prompted to either sign up or sign in
+WHEN I choose to sign up
+THEN I am prompted to create a username and password
+WHEN I click on the sign-up button
+THEN my user credentials are saved and I am logged into the site
+WHEN I revisit the site at a later time and choose to sign in
+THEN I am prompted to enter my username and password
+WHEN I am signed in to the site
+THEN I see navigation links for the homepage, the dashboard, and the option to log out
+WHEN I click on the homepage option in the navigation
+THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
+WHEN I click on an existing blog post
+THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+WHEN I enter a comment and click on the submit button while signed in
+THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+WHEN I click on the dashboard option in the navigation
+THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+WHEN I click on the button to add a new blog post
+THEN I am prompted to enter both a title and contents for my blog post
+WHEN I click on the button to create a new blog post
+THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
+WHEN I click on one of my existing posts in the dashboard
+THEN I am able to delete or update my post and taken back to an updated dashboard
+WHEN I click on the logout option in the navigation
+THEN I am signed out of the site
+NOTE: THIS LAST PIECE OF ACCEPTANCE CRITERIA WAS UPDATED BY OUR INSTRUCTOR DURING CLASS SESSION 14.2 ~6min
+WHEN I am idle on the site for more than a set time
+THEN I am able to view posts but I am prompted to log in again before I can add, update, or delete posts
+```
 
 ## Work Done
-* Supplemental backend code written for existing e-sommerce application
-* When a user enters database name, MySQL username, and MySQL password to an environment variable file they are able to connect to a database using Sequelize
-* When a user enters schema and seed commands, a development database is created and is seeded with test data
-* When a user enters the command to invoke the application, the server is started and the Sequelize models are synced to the MySQL database
-* When a user opens API GET routes in Insomnia Core for categories, products, or tags, the data for each of these routes is displayed in a formatted JSON
-* when a user tests API POST, PUT, and DELETE routes in Insomnia Core, they are able to successfully create, update, and delete data in my database
+* Please Note: this site must be run on local server at this time.
+* When a user visits the site for the first time, they are presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
+* When a user clicks on the homepage option, they are taken to the homepage
+<!-- WHEN I click on any other links in the navigation
+THEN I am prompted to either sign up or sign in
+WHEN I choose to sign up
+THEN I am prompted to create a username and password
+WHEN I click on the sign-up button
+THEN my user credentials are saved and I am logged into the site
+WHEN I revisit the site at a later time and choose to sign in
+THEN I am prompted to enter my username and password
+WHEN I am signed in to the site
+THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
+* When a user clicks on the homepage option in the navigation, they are taken to the homepage and presented with existing blog posts that include the post title and the date created
+* When a user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post
+ <!-- and have the option to leave a comment -->
+<!-- WHEN I enter a comment and click on the submit button while signed in
+THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+WHEN I click on the dashboard option in the navigation
+THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+WHEN I click on the button to add a new blog post
+THEN I am prompted to enter both a title and contents for my blog post
+WHEN I click on the button to create a new blog post
+THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
+WHEN I click on one of my existing posts in the dashboard
+THEN I am able to delete or update my post and taken back to an updated dashboard
+WHEN I click on the logout option in the navigation
+THEN I am signed out of the site
+NOTE: THIS LAST PIECE OF ACCEPTANCE CRITERIA WAS UPDATED BY OUR INSTRUCTOR DURING CLASS SESSION 14.2 ~6min
+WHEN I am idle on the site for more than a set time
+THEN I am able to view posts but I am prompted to log in again before I can add, update, or delete posts -->
+
 
 ## Links
-URL for GitHub repo: https://github.com/thenickedwards/e-commerce-pilot
+URL for GitHub repo: https://github.com/thenickedwards/tech-blog
 
-## Demo Video
-This video demonstrates how to use the Employee Tracker application (also found at: https://www.awesomescreenshot.com/video/7360431?key=24f6409315830d90d49b1be13d51bcf8).
+URL for Heroku app: https://gamenotes-thenickedwards.herokuapp.com/
 
-
-https://user-images.githubusercontent.com/92474821/153737688-02b7f936-8b42-4f9d-9568-3e629f726efa.mp4
-
-
-
-If you encounter any difficulty with the embedded videos or Screencasitfy links above, there are mp4 video files in the repo in the demo videos folder.
 
 Thank you for reading the readme!
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://gamenotes-thenickedwards.herokuapp.com/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
