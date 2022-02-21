@@ -15,18 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // TODO:
-// READ all post for a user
-router.get('/myposts', async (req, res) => {
-  try {
-      const postData = await Post.findAll({
-          // include: [{ model: User }],
-          where: {user_id: req.body.id}
-      });
-      res.status(200).json(postData);
-  } catch (err) {
-      res.status(500).json(err);
-  }
-});
+// READ all post for a user - HERE OR userRoutes??? /dashboard
 
 // READ a post
 router.get('/:id', async (req, res) => {

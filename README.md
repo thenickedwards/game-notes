@@ -85,7 +85,7 @@ THEN I am able to view posts but I am prompted to log in again before I can add,
 URL for GitHub repo: https://github.com/thenickedwards/tech-blog
 
 URL for Heroku app: https://gamenotes-thenickedwards.herokuapp.com/
-
+(Not currently functional.)
 
 Thank you for reading the readme!
 
