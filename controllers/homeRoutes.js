@@ -26,6 +26,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  res.render('login', {
+    title: 'Login of Sign Up!',
+  });
+});
+
 // GET a post with comments
 router.route('/posts/:id')
   // .all(function (req, res, next) {
