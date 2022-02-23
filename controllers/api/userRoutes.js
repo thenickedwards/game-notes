@@ -58,4 +58,32 @@ router.post('/logout', (req, res) => {
   }
 });
 
+////////// ROUTES FOR ADMINS TESTING //////////
+
+router.get("/admin-allusers", async (req, res) => {
+  //Find all users
+  try {
+    const userData = await User.findAll({});
+    res.status(200).json(userData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+//Get one user
+router.get("/admin-allusers/:id", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {});
+    if (!userData) {
+      res.status(404).json({ message: "No user with this id." });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
