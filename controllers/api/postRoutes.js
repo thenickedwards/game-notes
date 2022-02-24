@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const res = require('express/lib/response');
 const { Post, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // READ all posts
 router.get('/', async (req, res) => {
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 
 // TODO:
 // READ all post for a user - HERE OR userRoutes??? /dashboard
-router.get('/myposts', async (req, res) => {
+router.get('/myposts', withAuth, async (req, res) => {
   try {
       const postData = await Post.findAll({
           include: [{ model: User }],
@@ -32,7 +33,7 @@ router.get('/myposts', async (req, res) => {
 });
 
 // READ a post
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
       const postData = await Post.findByPk(req.params.id, {
         include: [{ model: User }]

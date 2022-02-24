@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 // const withAuth = require('../utils/auth');
 
 // GET all posts for homepage
@@ -18,7 +19,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       allPosts,
-      // logged_in: req.session.logged_in
+      logged_in: req.session.logged_in
     })
   } catch (err) {
     console.log(err);
@@ -32,15 +33,22 @@ router.get('/login', (req, res) => {
     return;
   }
   res.render('login', {
-    title: 'Login of Sign Up!',
+    title: 'Login or Sign Up!',
   });
 });
 
 // GET a post with comments
-router.route('/posts/:id')
-  // .all(function (req, res, next) {
-  //   console.log('Gathering post and comments...')
-  // })
+router.route('/posts/:id', withAuth)
+  .all(function (req, res, next) {
+    console.log('Gathering post and comments...')
+    if (!req.session.logged_in) {
+      res.redirect("/login");
+      return;
+    }
+    next();
+  })
+
+  //////////
   .get( async (req, res, next) => {
     // GET post
     try {
@@ -62,6 +70,7 @@ router.route('/posts/:id')
     } catch {
       res.status(500).json(err);
     }
+    next();
   })
   // GET comments associated with post
   .get( async (req, res, next) => {
@@ -77,6 +86,7 @@ router.route('/posts/:id')
         // res.redirect('login');
         res.status(500).json(err);
     }
+  
   });
 
 
