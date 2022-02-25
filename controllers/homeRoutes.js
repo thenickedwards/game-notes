@@ -90,7 +90,6 @@ router.get('/login', (req, res) => {
   
 //   });
 
-//////////////////// TESTING ˇˇˇ
 // READ a post with comments
 router.get('/posts/:id', withAuth, async (req, res) => {
   if (!req.session.logged_in) {
@@ -113,9 +112,9 @@ router.get('/posts/:id', withAuth, async (req, res) => {
     }
 
     // GET comments associated with post
-    const commentsByPost = await Comment.findAll({
-      where: {post_id: req.params.id},
-    })
+    // const commentsByPost = await Comment.findAll({
+    //   where: {post_id: req.params.id},
+    // })
 
     const onePost = postData.get({ plain: true });
 
@@ -127,11 +126,6 @@ router.get('/posts/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
-
-//////////////////// TESTING ^^^
 
 
 module.exports = router;
