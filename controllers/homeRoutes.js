@@ -121,7 +121,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
 
     // const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
 
-    res.render('post', onePost)
+    res.render('post', {...onePost, logged_in: req.session.logged_in})
 
   } catch (err) {
     res.status(500).json(err);
