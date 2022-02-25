@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
-// const withAuth = require('../utils/auth');
 
 // GET all posts for homepage
 router.get('/', async (req, res) => {
@@ -37,58 +36,102 @@ router.get('/login', (req, res) => {
   });
 });
 
-// GET a post with comments
-router.route('/posts/:id', withAuth)
-  .all(function (req, res, next) {
-    console.log('Gathering post and comments...')
-    if (!req.session.logged_in) {
-      res.redirect("/login");
+// // READ a post with comments
+// router.route('/posts/:id', withAuth)
+//   .all(function (req, res, next) {
+//     console.log('Gathering post and comments...')
+//     if (!req.session.logged_in) {
+//       res.redirect("/login");
+//       return;
+//     }
+//     next();
+//   })
+
+//   //////////
+//   .get( async (req, res, next) => {
+//     // GET post
+//     try {
+//       const postData = await Post.findByPk(req.params.id, {
+//         include: [
+//           { model: User, attributes: ['username'] },
+//           { model: Comment, attributes: ['comment_content', 'comment_date', 'user_id', 'post_id'], 
+//             include: { model: User, attributes: ['username']} }
+//         ]
+//       });
+
+//       if (!postData) {
+//         res.status(404).json({ message: 'Sorry, we cant find this post.' });
+//         return;
+//       }
+
+//       const onePost = postData.get({ plain: true });
+//       // res.status(200).json(postData)
+//       console.log(onePost);
+//       res.render('post', onePost)
+//     } catch {
+//       res.status(500).json(err);
+//     }
+//     next();
+//   })
+//   // GET comments associated with post
+//   .get( async (req, res, next) => {
+//     try {
+//         const commentsByPost = await Comment.findAll({
+//             where: {post_id: req.params.id},
+//         });
+//         const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
+//         // res.status(200).json(commentsByPost)
+//         console.log(comments);
+//         res.render('post', {comments})
+//     } catch (err) {
+//         // res.redirect('login');
+//         res.status(500).json(err);
+//     }
+  
+//   });
+
+//////////////////// TESTING ˇˇˇ
+// READ a post with comments
+router.get('/posts/:id', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+          res.redirect("/login");
+          return;
+        }
+  try {
+    // GET post
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        { model: User, attributes: ['username'] },
+        { model: Comment, attributes: ['comment_content', 'comment_date', 'user_id', 'post_id'], 
+          include: { model: User, attributes: ['username']} }
+      ]
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'Sorry, we cant find this post.' });
       return;
     }
-    next();
-  })
 
-  //////////
-  .get( async (req, res, next) => {
-    // GET post
-    try {
-      const postData = await Post.findByPk(req.params.id, {
-        include: [
-          { model: User, attributes: ['username'] },
-          { model: Comment, attributes: ['comment_content', 'comment_date', 'user_id', 'post_id'], 
-            include: { model: User, attributes: ['username']} }
-        ]
-      });
+    // GET comments associated with post
+    const commentsByPost = await Comment.findAll({
+      where: {post_id: req.params.id},
+    })
 
-      if (!postData) {
-        res.status(404).json({ message: 'Sorry, we cant find this post.'});
-        return;
-      }
+    const onePost = postData.get({ plain: true });
 
-      const onePost = postData.get({ plain: true });
-      res.render('post', onePost)
-    } catch {
-      res.status(500).json(err);
-    }
-    next();
-  })
-  // GET comments associated with post
-  .get( async (req, res, next) => {
-    try {
-        const commentsByPost = await Comment.findAll({
-            where: {post_id: req.params.id},
-        });
-        const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
-        // res.status(200).json(commentsByPost)
-        console.log(comments);
-        res.render('post', {comments})
-    } catch (err) {
-        // res.redirect('login');
-        res.status(500).json(err);
-    }
-  
-  });
+    // const comments = commentsByPost.map((comment) => comment.get({ plain: true }));
 
+    res.render('post', onePost)
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+
+//////////////////// TESTING ^^^
 
 
 module.exports = router;
