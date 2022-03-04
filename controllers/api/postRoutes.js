@@ -15,40 +15,23 @@ router.get('/', async (req, res) => {
     }
 });
 
-// TODO:
-// READ all post for a user - HERE OR userRoutes??? /dashboard
-router.get('/myposts', withAuth, async (req, res) => {
-  try {
-      const postData = await Post.findAll({
-          include: [{ model: User }],
-          where: {
-            // DOES THIS EVEN WORK?
-            user_id: req.session.userId,
-          },
-      });
-      res.status(200).json(postData);
-  } catch (err) {
-      res.status(500).json(err);
-  }
-});
-
 // READ a post
-// router.get('/:id', withAuth, async (req, res) => {
-//     try {
-//       const postData = await Post.findByPk(req.params.id, {
-//         include: [{ model: User }]
-//       });
+router.get('/:id', withAuth, async (req, res) => {
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [{ model: User }]
+      });
   
-//       if (!postData) {
-//         res.status(404).json({ message: 'Sorry, we cant find this post.' });
-//         return;
-//       }
+      if (!postData) {
+        res.status(404).json({ message: 'Sorry, we cant find this post.' });
+        return;
+      }
   
-//       res.status(200).json(postData);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+      res.status(200).json(postData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 // CREATE a post
 router.post('/', async (req, res) => {

@@ -1,0 +1,9 @@
+<div>
+    <a href="dashboard/newpost">
+        <button class="btn btn-primary" type="click">+ New Post</button>
+    </a>
+</div>
+
+{{#each userPosts as |post|}}
+{{> post-content}}
+{{/each}}

@@ -22,5 +22,11 @@
     "username": "rui",
     "email": "raul.ruidiaz@soundersfc.com",
     "password": "g0ld3n!8oot"
+  },
+  {
+    "id": 5,
+    "username": "nick",
+    "email": "nick@nick.com",
+    "password": "PASS!word123"
   }
 ]

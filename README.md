@@ -57,9 +57,10 @@ THEN I am able to view posts but I am prompted to log in again before I can add,
 * When a user revisits the site at a later time and choose to sign in, they are prompted to enter their username and password
 <!-- WHEN I am signed in to the site
 THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
+<!-- DASHBOARD PAGE of all the user's posts req.session.user_id -->
 * When a user clicks on the homepage option in the navigation, they are taken to the homepage and presented with existing blog posts that include the post title and the date created
 * When a user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post
- <!-- and have the option to leave a comment -->
+ <!-- ADD BUTTON and have the option to leave a comment -->
 <!-- WHEN I enter a comment and click on the submit button while signed in
 THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
 WHEN I click on the dashboard option in the navigation
