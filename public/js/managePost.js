@@ -1,3 +1,5 @@
+console.log('managePost.js is connected!')
+
 // Create new post on dashboard page
 const newpostFormHandler = async (event) => {
     event.preventDefault();
@@ -23,11 +25,39 @@ const newpostFormHandler = async (event) => {
 
 document
     .querySelector('.post-form')
-    .addEventListener('submit', newpostFormHandler)
+    ?.addEventListener('submit', newpostFormHandler)
     ;
 
 // Delete post on dahsboard page
-const deletePost = async function(event) {
+// const deletePost = async function(event) {
+//     if (event.target.matches('.delete-btn')) {
+//         console.log('HEY WHATS UP')
+//         const post_id = event.target.dataset.id
+//         console.log(post_id)
+
+//         await fetch(`/api/posts/${post_id}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         });
+//         console.log('The post was deleted!!! (I think.)')
+//         // window.location.reload();
+//     } else {
+//         console.log('At least the button is clicking')
+//     }
+// };
+
+// document
+//     .querySelector('.button-container')
+//     .addEventListener('click', deletePost
+//     );
+
+////////////////////
+
+document
+    .querySelector('.button-container')
+    .addEventListener('click', async function(event) {
     if (event.target.matches('.delete-btn')) {
         console.log('HEY WHATS UP')
         const post_id = event.target.dataset.id
@@ -39,11 +69,9 @@ const deletePost = async function(event) {
                 'Content-Type': 'application/json',
             },
         });
+        console.log('The post was deleted!!! (I think.)')
         // window.location.reload();
+    } else {
+        console.log('At least the button is clicking')
     }
-};
-
-document
-    .querySelector('.button-container')
-    .addEventListener('click', deletePost
-    );
+});
