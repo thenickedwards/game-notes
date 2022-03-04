@@ -55,27 +55,20 @@ THEN I am able to view posts but I am prompted to log in again before I can add,
 * When a user chooses to sign up, they are prompted to create a username and password
 * When a user clicks on the sign-up button and submits their data, the user's credentials are saved and they are logged into the site
 * When a user revisits the site at a later time and choose to sign in, they are prompted to enter their username and password
-<!-- WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out -->
-<!-- DASHBOARD PAGE of all the user's posts req.session.user_id -->
+* When a user is signed in to the site, they see navigation links for the homepage, the dashboard, and the option to log out -->
 * When a user clicks on the homepage option in the navigation, they are taken to the homepage and presented with existing blog posts that include the post title and the date created
 * When a user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post
  <!-- ADD BUTTON and have the option to leave a comment -->
 <!-- WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
+THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created -->
+* When a user clicks on the dashboard option in the navigation, they are taken to the dashboard and presented with any blog posts that user has already created and the option to add a new blog post
+* When a user clicks on the button to add a new blog post, they are prompted to enter both a title and contents for a blog post.
+* When a user clicks on the button to create a new blog post, the title and contents of my post are saved and they are taken back to an updated dashboard with my new blog post.
+<!-- WHEN I click on one of my existing posts in the dashboard
+THEN I am able to delete or update my post and taken back to an updated dashboard -->
+* When a user clicks on the logout option in the navigation, they are signed out of the site.
 NOTE: THIS LAST PIECE OF ACCEPTANCE CRITERIA WAS UPDATED BY OUR INSTRUCTOR DURING CLASS SESSION 14.2 ~6min
-WHEN I am idle on the site for more than a set time
-THEN I am able to view posts but I am prompted to log in again before I can add, update, or delete posts -->
+* When a user is idle on the site for more than a set time, they are able to view posts but prompted to log in again before they can add, update, or delete posts
 
 
 ## Links

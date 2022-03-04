@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // READ all post for a user
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
       const postsData = await Post.findAll({
           include: [
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 });
 
 // Render new post page
-router.get('/newpost', (req, res) => {
+router.get('/newpost', withAuth, (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");
     return;
@@ -35,7 +35,6 @@ router.get('/newpost', (req, res) => {
   res.render('newpost', {
     title: 'New Post',
     logged_in: req.session.logged_in,
-    user_id: req.session.user_id
   });
 });
 

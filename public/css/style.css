@@ -183,6 +183,14 @@ img {
   padding-left: 100px;
 }
 
+.delete-btn {
+  background-color: red !important;
+}
+
+.delete-btn:hover {
+  color: var(--dark) !important;
+}
+
 /* LAYOUT */
 .container {
   display: flex;
