@@ -29,35 +29,7 @@ document
     ;
 
 // Delete post on dahsboard page
-// const deletePost = async function(event) {
-//     if (event.target.matches('.delete-btn')) {
-//         console.log('HEY WHATS UP')
-//         const post_id = event.target.dataset.id
-//         console.log(post_id)
-
-//         await fetch(`/api/posts/${post_id}`, {
-//             method: 'DELETE',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         });
-//         console.log('The post was deleted!!! (I think.)')
-//         // window.location.reload();
-//     } else {
-//         console.log('At least the button is clicking')
-//     }
-// };
-
-// document
-//     .querySelector('.button-container')
-//     .addEventListener('click', deletePost
-//     );
-
-////////////////////
-
-document
-    .querySelector('.button-container')
-    .addEventListener('click', async function(event) {
+const deletePost = async function(event) {
     if (event.target.matches('.delete-btn')) {
         console.log('HEY WHATS UP')
         const post_id = event.target.dataset.id
@@ -74,4 +46,9 @@ document
     } else {
         console.log('At least the button is clicking')
     }
-});
+};
+
+document
+    .querySelector('.button-container')
+    .addEventListener('click', deletePost
+    );
