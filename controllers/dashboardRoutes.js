@@ -38,4 +38,7 @@ router.get('/newpost', withAuth, (req, res) => {
   });
 });
 
+// TODO: Render update post page
+// TODO: Build updatepost hbs
+
 module.exports = router;

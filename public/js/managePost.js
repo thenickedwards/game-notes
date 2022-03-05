@@ -19,21 +19,22 @@ const newpostFormHandler = async (event) => {
             document.location.replace('/dashboard');
         } else {
             alert('Post failed. :(\nPlease login and try again!')
+            window.location.replace('/login');
         }
     }
 };
 
 document
-    .querySelector('.post-form')
+    .querySelector('.newpost')
     ?.addEventListener('submit', newpostFormHandler)
     ;
 
 // Delete post on dahsboard page
 const deletePost = async function(event) {
     if (event.target.matches('.delete-btn')) {
-        console.log('HEY WHATS UP')
+        
         const post_id = event.target.dataset.id
-        console.log(post_id)
+        console.log(event)
 
         await fetch(`/api/posts/${post_id}`, {
             method: 'DELETE',
@@ -41,14 +42,16 @@ const deletePost = async function(event) {
                 'Content-Type': 'application/json',
             },
         });
-        console.log('The post was deleted!!! (I think.)')
-        // window.location.reload();
+
+        window.location.reload();
     } else {
-        console.log('At least the button is clicking')
+        alert('Delete failed. :(\nPlease login and try again!')
+        window.location.replace('/login');
     }
 };
 
 document
-    .querySelector('.button-container')
-    .addEventListener('click', deletePost
-    );
+    .querySelectorAll('.delete-btn').forEach(element => element.addEventListener('click', deletePost
+    ));
+
+    ////////////////////
