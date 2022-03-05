@@ -54,14 +54,11 @@ document
     .querySelectorAll('.delete-btn').forEach(element => element.addEventListener('click', deletePost
     ));
 
-    ////////////////////
-
 // Update a post
 const updatepostFormHandler = async (event) => {
     event.preventDefault();
-    console.log('Function is working!')
+    
     const id = event.target.dataset.id
-    console.log(event.target)
     const title = document.querySelector('#updatepost-title').value.trim();
     const post_content = document.querySelector('#updatepost-post_content').value.trim();
 
@@ -74,11 +71,10 @@ const updatepostFormHandler = async (event) => {
         
         console.log(response);
         if (response.ok) {
-            console.log(response);
-            // document.location.replace('/dashboard');
+            document.location.replace('/dashboard');
         } else {
             alert('Post failed. :(\nPlease login and try again!')
-            // window.location.replace('/login');
+            window.location.replace('/login');
         }
     }
 };
