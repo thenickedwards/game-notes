@@ -1,6 +1,6 @@
 console.log('managePost.js is connected!')
 
-// Create new post on dashboard page
+// Create new post (from dashboard page)
 const newpostFormHandler = async (event) => {
     event.preventDefault();
 
@@ -29,7 +29,7 @@ document
     ?.addEventListener('submit', newpostFormHandler)
     ;
 
-// Delete post on dahsboard page
+// Delete post
 const deletePost = async function(event) {
     if (event.target.matches('.delete-btn')) {
         
@@ -56,12 +56,12 @@ document
 
     ////////////////////
 
-// Create new post on dashboard page
+// Update a post
 const updatepostFormHandler = async (event) => {
     event.preventDefault();
     console.log('Function is working!')
     const id = event.target.dataset.id
-    console.log(id)
+    console.log(event.target)
     const title = document.querySelector('#updatepost-title').value.trim();
     const post_content = document.querySelector('#updatepost-post_content').value.trim();
 
