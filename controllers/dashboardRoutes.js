@@ -33,12 +33,36 @@ router.get('/newpost', withAuth, (req, res) => {
     return;
   }
   res.render('newpost', {
-    title: 'New Post',
     logged_in: req.session.logged_in,
   });
 });
 
-// TODO: Render update post page
-// TODO: Build updatepost hbs
+// TODO: Render update post page with post to update
+router.get('/updatepost/:id', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+  
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: User }]
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: 'Sorry, we cant find this post.' });
+      return;
+    }
+
+    const onePost = postData.get({ plain: true });
+    
+    res.render('updatepost', {
+      ...onePost,
+      logged_in: req.session.logged_in,
+    });
+  } catch {
+      console.log(err)
+  }
+});
 
 module.exports = router;
