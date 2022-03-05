@@ -55,3 +55,35 @@ document
     ));
 
     ////////////////////
+
+// Create new post on dashboard page
+const updatepostFormHandler = async (event) => {
+    event.preventDefault();
+    console.log('Function is working!')
+    const id = event.target.dataset.id
+    console.log(id)
+    const title = document.querySelector('#updatepost-title').value.trim();
+    const post_content = document.querySelector('#updatepost-post_content').value.trim();
+
+    if (title && post_content) {
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ title, post_content }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        
+        console.log(response);
+        if (response.ok) {
+            console.log(response);
+            // document.location.replace('/dashboard');
+        } else {
+            alert('Post failed. :(\nPlease login and try again!')
+            // window.location.replace('/login');
+        }
+    }
+};
+
+document
+    .querySelector('.updatepost')
+    ?.addEventListener('submit', updatepostFormHandler)
+    ;
