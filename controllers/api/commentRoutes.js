@@ -14,7 +14,7 @@ router.get('/admin-get-all-comments', async (req, res) => {
     }
 });
 
-// READ all comments with a post_id
+// READ all comments by post_id
 router.get('/:id', async (req, res) => {
     try {
         const commentsByPost = await Comment.findAll({
@@ -78,7 +78,5 @@ router.delete('/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
-
 
 module.exports = router;

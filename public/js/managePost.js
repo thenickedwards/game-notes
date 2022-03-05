@@ -1,5 +1,3 @@
-console.log('managePost.js is connected!')
-
 // Create new post (from dashboard page)
 const newpostFormHandler = async (event) => {
     event.preventDefault();
@@ -14,7 +12,6 @@ const newpostFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         
-        // console.log(response);
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {

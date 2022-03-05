@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// Signup route
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,6 +17,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -48,6 +50,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Logout route
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -60,30 +63,30 @@ router.post('/logout', (req, res) => {
 
 ////////// ROUTES FOR ADMINS TESTING //////////
 
-router.get("/admin-allusers", async (req, res) => {
-  //Find all users
-  try {
-    const userData = await User.findAll({});
-    res.status(200).json(userData);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
+// router.get("/admin-allusers", async (req, res) => {
+//   //Find all users
+//   try {
+//     const userData = await User.findAll({});
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-//Get one user
-router.get("/admin-allusers/:id", async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {});
-    if (!userData) {
-      res.status(404).json({ message: "No user with this id." });
-      return;
-    }
-    res.status(200).json(userData);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
+// //Get one user
+// router.get("/admin-allusers/:id", async (req, res) => {
+//   try {
+//     const userData = await User.findByPk(req.params.id, {});
+//     if (!userData) {
+//       res.status(404).json({ message: "No user with this id." });
+//       return;
+//     }
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

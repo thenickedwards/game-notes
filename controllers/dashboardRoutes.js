@@ -37,7 +37,7 @@ router.get('/newpost', withAuth, (req, res) => {
   });
 });
 
-// TODO: Render update post page with post to update
+// Render update post page with post to update
 router.get('/updatepost/:id', withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect("/login");

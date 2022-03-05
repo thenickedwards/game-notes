@@ -1,6 +1,6 @@
 console.log('addComment.js is connected!')
 
-// Create new post on dashboard page
+// Post new comment
 const newcommentFormHandler = async (event) => {
     event.preventDefault();
 
@@ -15,7 +15,6 @@ const newcommentFormHandler = async (event) => {
         });
         
         if (response.ok) {
-            // console.log(response);
             window.location.reload();
         } else {
             alert('Comment failed. :(\nPlease login and try again!')

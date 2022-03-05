@@ -26,6 +26,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Login redirect to homepage if logged in or login page if not
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -43,7 +44,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
           return;
         }
   try {
-    // GET post with associated comments
+    // GET comments associated with post  
     const postData = await Post.findByPk(req.params.id, {
       include: [
         { model: User, attributes: ['username'] },
@@ -72,6 +73,5 @@ router.get('/posts/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;
