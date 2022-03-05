@@ -69,8 +69,8 @@ const updatepostFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         
-        console.log(response);
         if (response.ok) {
+            console.log(response);
             document.location.replace('/dashboard');
         } else {
             alert('Post failed. :(\nPlease login and try again!')
