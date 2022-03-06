@@ -1,5 +1,5 @@
 # game-notes (FKA tech-blog)
-Homework 14 Model-View-Controller (MVC): Tech Blog
+Homework 14 Model-View-Controller (MVC): ~~Tech Blog~~ Game Notes
 
 All code for Game Notes written per acceptance criteria in [provided_assets/W14-hw_readme.md](/provided_assets/W14-hw_readme.md).  Note: I have adjust the style and purpose of the blog to center around the communications of a soccer team.  My vision is to create a place where users can engage in the same asks found in the assignment though the focus is collecting thoughts, observations, questions, etc. on recent soccer games (rather than a tech blog). My initial idea was to create a space where a head coach could coordinate and collaborate with their coaching staff, medical personnel, data analysts, and other team members.  This change was approved by my instructor.
 
@@ -28,6 +28,7 @@ This project is now complete, fully functional, and meets all acceptance criteri
 NOTE: THIS LAST PIECE OF ACCEPTANCE CRITERIA WAS UPDATED BY OUR INSTRUCTOR DURING CLASS SESSION 14.2 ~6min
 * When a user is idle on the site for more than a set time (4 hrs), they are able to view posts but prompted to log in again before they can add, update, or delete posts
 
+## Screenshots
 
 ## Links
 URL for GitHub repo: https://github.com/thenickedwards/tech-blog
