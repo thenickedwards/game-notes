@@ -30,6 +30,22 @@ NOTE: THIS LAST PIECE OF ACCEPTANCE CRITERIA WAS UPDATED BY OUR INSTRUCTOR DURIN
 
 ## Screenshots
 
+### Home page
+![gamenotes-home](https://user-images.githubusercontent.com/92474821/156905270-d324726e-0f43-4ac4-9a6f-727ae360ff02.png)
+
+### Login & Signup
+![gamenotes-login](https://user-images.githubusercontent.com/92474821/156905234-c1909da2-5452-4c85-be69-298100c3455a.png)
+
+### User Dashboard
+![gamenotes-dash](https://user-images.githubusercontent.com/92474821/156905273-cb4424e0-1e69-46e6-80df-86315f11160f.png)
+
+### Example Post 1
+![gamenotes-post1](https://user-images.githubusercontent.com/92474821/156905280-931e3dab-0e84-4156-a69d-2d214260e224.png)
+
+### Example Post 2
+![gamenotes-post2](https://user-images.githubusercontent.com/92474821/156905288-cc8636e4-ed9a-4d16-b8c2-ee509d7e8af6.png)
+
+
 ## Links
 URL for GitHub repo: https://github.com/thenickedwards/tech-blog
 
