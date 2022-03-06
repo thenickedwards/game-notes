@@ -50,7 +50,8 @@ NOTE: THIS LAST PIECE OF ACCEPTANCE CRITERIA WAS UPDATED BY OUR INSTRUCTOR DURIN
 URL for GitHub repo: https://github.com/thenickedwards/tech-blog
 
 URL for Heroku app: https://gamenotes-thenickedwards.herokuapp.com/
-(Not currently functional.)
+
+
 
 Thank you for reading the readme!
 
