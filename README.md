@@ -1,4 +1,4 @@
-_NOTE: The deployment of this project is currently down. I am currently in the process of researching deployment options and appreciate your patience in the meantime! I will continue to keep this code available, so feel free to have a look around and reach out if you have questions or would like to chat further._
+~~_NOTE: The deployment of this project is currently down. I am currently in the process of researching deployment options and appreciate your patience in the meantime! I will continue to keep this code available, so feel free to have a look around and reach out if you have questions or would like to chat further._~~
 
 # game-notes (FKA tech-blog)
 Homework 14 Model-View-Controller (MVC): ~~Tech Blog~~ Game Notes
